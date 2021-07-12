@@ -21,7 +21,7 @@ app.use('/quiz', require('./quiz/quizs.controller'));
 app.use(errorHandler);
 
 // start server
-const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4100;
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4101;
 const server = app.listen(port, function () {
     console.log('Server listening on port ' + port);
 });

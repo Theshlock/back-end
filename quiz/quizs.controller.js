@@ -1,6 +1,6 @@
 ﻿const express = require('express');
 const router = express.Router();
-// const userService = require('./quiz.service');
+const userService = require('./quiz.service');
 
 
 const db = require('_helpers/db');
@@ -11,8 +11,8 @@ const Item  = db.Item;
 
 // routes
 // router.post('/authenticate', authenticate);
-// router.post('/register', register);
-// router.get('/', getAll);
+router.post('/create', create);
+router.get('/', getAll);
 // router.get('/current', getCurrent);
 // router.get('/:id', getById);
 // router.put('/:id', update);
@@ -21,15 +21,17 @@ const Item  = db.Item;
 router.get("/test", test)
 
 router.get("/test2", test2)
+
+
 module.exports = router;
-/*
+
 function authenticate(req, res, next) {
     userService.authenticate(req.body)
         .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
         .catch(err => next(err));
 }
 
-function register(req, res, next) {
+function create(req, res, next) {
     userService.create(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
@@ -64,7 +66,7 @@ function _delete(req, res, next) {
         .then(() => res.json({}))
         .catch(err => next(err));
 }
-*/
+
 async function test(req, res, next){
     var test = await Quiz.find().populate('items')
     console.log('brappp')
@@ -72,16 +74,26 @@ async function test(req, res, next){
 }
     
 async function test2(req, res, next){
-    var item = {
-        name : "hjgjgfgggddgfgdhg",
+    var item1 = {
+        name : "712132",
         numSuccess : 0,
-        icon: "fgjufgfgydddggf"
+        icon: "711232"
     }
-    var itemObject = new Item(item)
+    console.log(item1)
+
+    var item2 = {
+        name : "722132",
+        numSuccess : 0,
+        icon: "721232"
+    }
+    console.log(item2)
+
+    var itemList0 = [item1, item2]
+
     var quiz = {
-        name: "yufuyhgddgdhhhjf",
-        hash: "jgkhgghhdddj",
-        items : [itemObject]
+        name: "7112233",
+        hash: "711112333",
+        items : itemList0
     }
 
     var quizObject = new Quiz(quiz)

@@ -32,21 +32,26 @@ async function getById(id) {
     return await User.findById(id);
 }
 
-async function create(userParam) {
-    // validate
-    if (await User.findOne({ username: userParam.username })) {
-        throw 'Username "' + userParam.username + '" is already taken';
+async function create(quizParam) {
+    // put items into list
+    itemlist = []
+    for (let i = 0; i < quizParam.items.length; i++) {
+        var item = {
+            "name" : quizParam.items[i]["name"],
+            numSuccess : 0,
+            icon: quizParam.items[i]["icon"]
+        }
+        itemlist.push(item) 
+    }
+    // create quiz object
+    var quiz = {
+        name: quizParam["name"],
+        hash: "711112333",
+        items : itemlist
     }
 
-    const user = new User(userParam);
-
-    // hash password
-    if (userParam.password) {
-        user.hash = bcrypt.hashSync(userParam.password, 10);
-    }
-
-    // save user
-    await user.save();
+    var quizObject = new Quiz(quiz);
+    await quizObject.save();
 }
 
 async function update(id, userParam) {
