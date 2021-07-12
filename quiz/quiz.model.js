@@ -2,19 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
-    name: { type: String, unique: true},//, required: true },
-    icon: { type: String},// required: true },
-    numSuccess: { type: Number}//, required: true },
-});
-
-const quizSchema = new Schema({
-    name: { type: String, unique: true, required: true },
-    hash: { type: String, required: true },
-    items: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Item'
-    }],
-    createdDate: { type: Date, default: Date.now }
+    name: { type: String },//, required: true },
+    icon: { type: String },// required: true },
+    numSuccess: { type: Number }//, required: true },
 });
 
 itemSchema.set('toJSON', {
@@ -33,6 +23,16 @@ itemSchema.set('toObject', {
         // delete ret.hash;
     }
 });
+
+module.exports = mongoose.model('Item', itemSchema);
+
+const quizSchema = new Schema({
+    name: { type: String, unique: true, required: true },
+    hash: { type: String, required: true },
+    items: { type: [itemSchema], default: [{ name: 'default name', icon: 'default icon', numSuccess: 0 }]},
+    createdDate: { type: Date, default: Date.now }
+});
+
 quizSchema.set('toJSON', {
     virtuals: true,
     versionKey: false,
@@ -51,5 +51,4 @@ quizSchema.set('toObject', {
 });
 
 module.exports = mongoose.model('Quiz', quizSchema);
-module.exports = mongoose.model('Item', itemSchema);
 

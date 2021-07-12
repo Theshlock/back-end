@@ -73,14 +73,14 @@ async function test(req, res, next){
     
 async function test2(req, res, next){
     var item = {
-        name : "hjgjgfgggddgfghg",
+        name : "hjgjgfgggddgfgdhg",
         numSuccess : 0,
-        icon: "fgjufgfgyddggf"
+        icon: "fgjufgfgydddggf"
     }
     var itemObject = new Item(item)
     var quiz = {
-        name: "yufuyhgddghhhjf",
-        hash: "jgkhgghhddj",
+        name: "yufuyhgddgdhhhjf",
+        hash: "jgkhgghhdddj",
         items : [itemObject]
     }
 
