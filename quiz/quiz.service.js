@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
-const User = db.User;
+const Quiz = db.Quiz;
 
 module.exports = {
     authenticate,
@@ -14,7 +14,7 @@ module.exports = {
 };
 
 async function authenticate({ username, password }) {
-    const user = await User.findOne({ username });
+    const user = await Quiz.findOne({ username });
     if (user && bcrypt.compareSync(password, user.hash)) {
         const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '7d' });
         return {

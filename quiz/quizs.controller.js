@@ -1,6 +1,7 @@
 ﻿const express = require('express');
 const router = express.Router();
 const userService = require('./quiz.service');
+const Quiz = db.Quiz;
 
 // routes
 router.post('/authenticate', authenticate);
@@ -11,6 +12,7 @@ router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', _delete);
 
+router.get("/test", test)
 module.exports = router;
 
 function authenticate(req, res, next) {
@@ -53,4 +55,10 @@ function _delete(req, res, next) {
     userService.delete(req.params.id)
         .then(() => res.json({}))
         .catch(err => next(err));
+}
+
+function test(req, res, next){
+    var test = Quiz.getAll()
+    res.json(test)
+    var tt = 0
 }
