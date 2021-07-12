@@ -25,11 +25,11 @@ async function authenticate({ username, password }) {
 }
 
 async function getAll() {
-    return await User.find();
+    return await Quiz.find();
 }
 
 async function getById(id) {
-    return await User.findById(id);
+    return await Quiz.findById(id);
 }
 
 async function create(quizParam) {
@@ -43,6 +43,7 @@ async function create(quizParam) {
         }
         itemlist.push(item) 
     }
+    console.log(itemlist)
     // create quiz object
     var quiz = {
         name: quizParam["name"],

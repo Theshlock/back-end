@@ -20,7 +20,7 @@ app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // api routes
 app.use('/users', require('./users/users.controller'));
-app.use('/quiz', require('./quiz/quizs.controller'));
+app.use('/', require('./quiz/quizs.controller'));
 
 // global error handler
 app.use(errorHandler);
