@@ -20,7 +20,10 @@
         "jsonwebtoken": "^8.5.1",
         "mongodb": "^3.5.9",
         "mongoose": "^5.9.21",
-        "rootpath": "^0.1.2"
+        "rootpath": "^0.1.2",
+        "swagger-autogen": "^2.10.4",
+        "swagger-jsdoc": "^6.1.0",
+        "swagger-ui-express": "^4.1.6"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"
