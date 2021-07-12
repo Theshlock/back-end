@@ -71,6 +71,24 @@ router.get('/quiz-matchup/:id', async (req, res, next) => {
         })
     }
 })
+
+router.delete('/quiz/:id', async (req, res, next) => {
+    /* 	#swagger.tags = ['Quiz']
+        #swagger.description = 'Endpoint to delete a quiz' */
+    try{
+        var data = await quizService.delete(req.params.id)
+
+        res.status(201).json({
+            result: "sucess",
+        })
+    }catch(err){
+        res.status(500).json({
+            error: err,
+        })
+    }
+})
+
+
 router.post('/quiz-vote', async (req, res, next) => {
     /* 	#swagger.tags = ['Quiz']
         #swagger.description = 'Endpoint to vote on a matchup' */

@@ -97,6 +97,28 @@
             "description": "Created"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Quiz"
+        ],
+        "description": "Endpoint to delete a quiz",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/quiz-results/{id}": {

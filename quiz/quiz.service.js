@@ -80,7 +80,7 @@ async function update(id, userParam) {
 }
 
 async function _delete(id) {
-    await User.findByIdAndRemove(id);
+    await Quiz.findByIdAndRemove(id);
 }
 
 async function getMatchup(quizId){
