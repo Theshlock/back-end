@@ -42,6 +42,45 @@ router.get('/quiz/:id', async (req, res, next) => {
     })
 })
 
+
+router.get('/quiz-matchup/:id', async (req, res, next) => {
+    /* 	#swagger.tags = ['Quiz']
+        #swagger.description = 'Endpoint to get a matchup of 2 items' */
+    try{
+        var data = await quizService.getMatchup(req.params.id)
+
+        res.status(201).json({
+            matchup: data,
+        })
+    }catch(err){
+        res.status(500).json({
+            error: err,
+        })
+    }
+})
+router.post('/quiz-vote', async (req, res, next) => {
+    /* 	#swagger.tags = ['Quiz']
+        #swagger.description = 'Endpoint to vote on a matchup' */
+    /*	#swagger.parameters['quiz'] = {
+        in: 'body',
+        description: 'Quiz and item Ids.',
+        required: true,
+        schema: { $ref: "#/definitions/QuizItemIds" }
+    } */
+    try{
+        await quizService.recordVote(req.body.quizId, req.body.itemId)
+
+        res.status(201).json({
+            result: "sucess"
+        })
+    }catch(err){
+        console.log(err,"haha")
+        res.status(500).json({
+            error: err.toString(),
+        })
+    }
+})
+
 router.get('/quiz-all', async (req, res, next) => {
     /* 	#swagger.tags = ['Quiz']
         #swagger.description = 'Endpoint to get all quiz' */
