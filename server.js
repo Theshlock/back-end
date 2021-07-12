@@ -8,10 +8,15 @@ const errorHandler = require('_helpers/error-handler');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+//  app.use(cors());
 
 // use JWT auth to secure the api
 //app.use(jwt());
+
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger_output.json')
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // api routes
 app.use('/users', require('./users/users.controller'));
