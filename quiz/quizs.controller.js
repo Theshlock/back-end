@@ -1,20 +1,28 @@
 ﻿const express = require('express');
 const router = express.Router();
-const userService = require('./quiz.service');
+// const userService = require('./quiz.service');
+
+
+const db = require('_helpers/db');
+
 const Quiz = db.Quiz;
 
+const Item  = db.Item;
+
 // routes
-router.post('/authenticate', authenticate);
-router.post('/register', register);
-router.get('/', getAll);
-router.get('/current', getCurrent);
-router.get('/:id', getById);
-router.put('/:id', update);
-router.delete('/:id', _delete);
+// router.post('/authenticate', authenticate);
+// router.post('/register', register);
+// router.get('/', getAll);
+// router.get('/current', getCurrent);
+// router.get('/:id', getById);
+// router.put('/:id', update);
+// router.delete('/:id', _delete);
 
 router.get("/test", test)
-module.exports = router;
 
+router.get("/test2", test2)
+module.exports = router;
+/*
 function authenticate(req, res, next) {
     userService.authenticate(req.body)
         .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
@@ -56,9 +64,28 @@ function _delete(req, res, next) {
         .then(() => res.json({}))
         .catch(err => next(err));
 }
-
-function test(req, res, next){
-    var test = Quiz.getAll()
+*/
+async function test(req, res, next){
+    var test = await Quiz.find().populate('items')
+    console.log('brappp')
     res.json(test)
-    var tt = 0
+}
+    
+async function test2(req, res, next){
+    var item = {
+        name : "hjgjgfgggddgfghg",
+        numSuccess : 0,
+        icon: "fgjufgfgyddggf"
+    }
+    var itemObject = new Item(item)
+    var quiz = {
+        name: "yufuyhgddghhhjf",
+        hash: "jgkhgghhddj",
+        items : [itemObject]
+    }
+
+    var quizObject = new Quiz(quiz)
+   
+    await quizObject.save();
+    res.json(quiz)
 }
