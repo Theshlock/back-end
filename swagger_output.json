@@ -99,6 +99,27 @@
         }
       }
     },
+    "/quiz-results/{id}": {
+      "get": {
+        "tags": [
+          "Quiz"
+        ],
+        "description": "Endpoint to get a quizs results",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
     "/quiz-matchup/{id}": {
       "get": {
         "tags": [

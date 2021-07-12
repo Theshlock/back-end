@@ -41,6 +41,19 @@ router.get('/quiz/:id', async (req, res, next) => {
         message: 'Authentication success'
     })
 })
+router.get('/quiz-results/:id', async (req, res, next) => {
+    /* 	#swagger.tags = ['Quiz']
+        #swagger.description = 'Endpoint to get a quizs results' */
+
+    console.log(req.params)
+
+    var data = await quizService.getResults(req.params.id)
+
+    res.status(201).json({
+        data: data,
+        message: 'success'
+    })
+})
 
 
 router.get('/quiz-matchup/:id', async (req, res, next) => {

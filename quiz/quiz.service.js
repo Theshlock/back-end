@@ -13,7 +13,8 @@ module.exports = {
     update,
     delete: _delete,
     getMatchup,
-    recordVote
+    recordVote,
+    getResults
 };
 
 async function authenticate({ username, password }) {
@@ -110,4 +111,13 @@ async function recordVote(quizId, itemId){
     }
 
     
+}
+
+async function getResults(quizId){
+    var quiz  = await Quiz.findById(quizId)
+    return quiz.items.sort(function(a,b){
+        if(a.numSuccess < b.numSuccess)return 1
+        if(a.numSuccess > b.numSuccess)return -1
+        return 0
+    });
 }
