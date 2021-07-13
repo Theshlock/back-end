@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const jwt = require('_helpers/jwt');
 const errorHandler = require('_helpers/error-handler');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -11,8 +10,34 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-// use JWT auth to secure the api
-//app.use(jwt());
+var jwt = require('express-jwt');
+var jwks = require('jwks-rsa');
+
+var jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: 'https://dev-bwkc1q2n.us.auth0.com/.well-known/jwks.json'
+  }),
+  audience: 'https://flipic-api',
+  issuer: 'https://dev-bwkc1q2n.us.auth0.com/',
+  algorithms: ['RS256']
+});
+
+// app.use(jwtCheck);
+app.post('/quiz', jwtCheck, function(req, res,next) {
+    next()
+});
+
+app.delete('/quiz', jwtCheck, function(req, res,next) {
+    next()
+});
+
+app.get('/quiz-all', jwtCheck, function(req, res) {
+    next()
+});
+
 app.options('*', cors())
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
