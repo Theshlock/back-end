@@ -1,5 +1,5 @@
 const swaggerAutogen = require('swagger-autogen')()
-const config = require('./config_production.json');
+const config = require('./config.json');
 
 const outputFile = './swagger_output.json'
 const endpointsFiles = ['./quiz/quizs.controller.js']//['./server.js']//
