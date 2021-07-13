@@ -28,15 +28,15 @@ async function authenticate({ username, password }) {
     }
 }
 
-async function getAll() {
-    return await Quiz.find();
+async function getAll(userId) {
+    return await Quiz.find({userId:userId});
 }
 
 async function getById(id) {
     return await Quiz.findById(id);
 }
 
-async function create(quizParam) {
+async function create(quizParam, userId) {
     // put items into list
     itemlist = []
     for (let i = 0; i < quizParam.items.length; i++) {
@@ -52,7 +52,8 @@ async function create(quizParam) {
     var quiz = {
         name: quizParam["name"],
         hash: "711112333",
-        items : itemlist
+        items : itemlist,
+        userId : userId
     }
 
     var quizObject = new Quiz(quiz);
