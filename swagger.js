@@ -1,5 +1,5 @@
 const swaggerAutogen = require('swagger-autogen')()
-const config = require('./config_production.json');
+const config = require('./config.json');
 
 const outputFile = './swagger_output.json'
 const endpointsFiles = ['./quiz/quizs.controller.js']//['./server.js']//
@@ -21,10 +21,10 @@ const doc = {
         }
     ],
     securityDefinitions: {
-        apiKeyAuth:{
+        Bearer:{
             type: "apiKey",
             in: "header",       // can be "header", "query" or "cookie"
-            name: "X-API-KEY",  // name of the header, query parameter or cookie
+            name: "Authorization",  // name of the header, query parameter or cookie
             description: "any description..."
         }
     },

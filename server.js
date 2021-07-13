@@ -20,7 +20,7 @@ var jwtCheck = jwt({
         jwksRequestsPerMinute: 5,
         jwksUri: 'https://dev-bwkc1q2n.us.auth0.com/.well-known/jwks.json'
   }),
-  audience: 'https://flipic-api',
+  audience: 'https://dev-bwkc1q2n.us.auth0.com/api/v2/',
   issuer: 'https://dev-bwkc1q2n.us.auth0.com/',
   algorithms: ['RS256']
 });
@@ -34,7 +34,7 @@ app.delete('/quiz', jwtCheck, function(req, res,next) {
     next()
 });
 
-app.get('/quiz-all', jwtCheck, function(req, res) {
+app.get('/quiz-all', jwtCheck, function(req, res, next) {
     next()
 });
 
