@@ -6,7 +6,7 @@ const Quiz = db.Quiz;
 const Item  = db.Item;
 
 
-router.post('/quiz', (req, res, next) => {
+router.post('/quiz', async (req, res, next) => {
     /* 	#swagger.tags = ['Quiz']
         #swagger.description = 'Endpoint to create a quiz' */
 
