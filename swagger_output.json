@@ -229,12 +229,17 @@
           "type": "string",
           "example": "Quiz Name"
         },
+<<<<<<< HEAD
         "quizCreator": {
           "type": "string",
           "example": "Quiz Creators Name"
         },
         "privacyType": {
           "type": "string",
+=======
+        "privacyType": {
+          "type": "string",
+>>>>>>> ed73d44964824ed4da26389b85ee6c5397fe520c
           "example": "Public"
         },
         "items": {
