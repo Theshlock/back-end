@@ -2,6 +2,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
+const { mkactivity } = require('../users/users.controller');
 const Quiz = db.Quiz;
 const Item = db.Item;
 
@@ -86,11 +87,16 @@ async function _delete(id) {
 
 async function getMatchup(quizId){
     var quiz  =  await Quiz.findById(quizId)
+    
     var matchup = []
-    for(var i=0;i<2;i++){
-        var rndIdx = Math.floor(Math.random() * quiz.items.length);
-        matchup.push(quiz.items[rndIdx])
+    while (matchup.length != 2 || matchup[0].id === matchup[1].id){
+        matchup = []
+        for(var i=0;i<2;i++){
+            var rndIdx = Math.floor(Math.random() * quiz.items.length);
+            matchup.push(quiz.items[rndIdx])
+        }
     }
+    
     return matchup
 }
 
