@@ -27,17 +27,17 @@ var jwtCheck = jwt({
 });
 
 // app.use(jwtCheck);
-app.post('/quiz', jwtCheck, function(req, res,next) {
-    next()
-});
+// app.post('/quiz', jwtCheck, function(req, res,next) {
+//     next()
+// });
 
-app.delete('/quiz', jwtCheck, function(req, res,next) {
-    next()
-});
+// app.delete('/quiz', jwtCheck, function(req, res,next) {
+//     next()
+// });
 
-app.get('/quiz-all', jwtCheck, function(req, res, next) {
-    next()
-});
+// app.get('/quiz-all', jwtCheck, function(req, res, next) {
+//     next()
+// });
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')

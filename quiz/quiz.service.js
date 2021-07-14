@@ -51,6 +51,7 @@ async function create(quizParam, userId) {
     // create quiz object
     var quiz = {
         name: quizParam["name"],
+        quizCreator: quizParam["quizCreator"],
         privacyType: quizParam["privacyType"],
         items : itemlist,
         userId : userId
