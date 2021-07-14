@@ -229,9 +229,9 @@
           "type": "string",
           "example": "Quiz Name"
         },
-        "hash": {
+        "privacyType": {
           "type": "string",
-          "example": "Quiz Hash"
+          "example": "Public"
         },
         "items": {
           "type": "array",
