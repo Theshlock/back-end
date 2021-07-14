@@ -26,7 +26,7 @@ var jwtCheck = jwt({
   algorithms: ['RS256']
 });
 
-app.use(jwtCheck);
+// app.use(jwtCheck);
 app.post('/quiz', jwtCheck, function(req, res,next) {
     next()
 });

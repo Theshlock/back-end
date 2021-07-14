@@ -237,6 +237,14 @@
           "type": "string",
           "example": "Public"
         },
+        "createdBy": {
+          "type": "string",
+          "example": "Created By"
+        },
+        "audienceSize": {
+          "type": "string",
+          "example": "5"
+        },
         "items": {
           "type": "array",
           "items": {
