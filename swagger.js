@@ -37,6 +37,8 @@ const doc = {
             name: "Quiz Name",
             quizCreator: "Quiz Creators Name",
             privacyType: "Public",
+            createdBy : "Created By",
+            audienceSize: "5",
             items: [{
                 $ref: '#/definitions/Item'
             }]

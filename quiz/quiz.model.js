@@ -31,6 +31,7 @@ const quizSchema = new Schema({
     userId: { type: String, required: true },
     quizCreator: { type: String, required: true },
     privacyType: { type: String, required: true },
+    audienceSize: { type: Number },
     items: { type: [itemSchema], default: [{ name: 'default name', icon: 'default icon', numSuccess: 0 }]},
     createdDate: { type: Date, default: Date.now }
 });
