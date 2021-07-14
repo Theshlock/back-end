@@ -35,6 +35,7 @@ const doc = {
         },
         Quiz: {
             name: "Quiz Name",
+            quizCreator: "Quiz Creators Name",
             privacyType: "Public",
             createdBy : "Created By",
             audienceSize: "5",

@@ -29,6 +29,7 @@ module.exports = mongoose.model('Item', itemSchema);
 const quizSchema = new Schema({
     name: { type: String, unique: true, required: true },
     userId: { type: String, required: true },
+    quizCreator: { type: String, required: true },
     privacyType: { type: String, required: true },
     createdBy: { type: String, required: true },
     audienceSize: { type: Number },
