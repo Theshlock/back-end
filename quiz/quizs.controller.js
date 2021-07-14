@@ -19,6 +19,10 @@ router.post('/quiz', async (req, res, next) => {
     var userId = req.user.sub
     await quizService.create(req.body, userId)
 
+    var data = await quizService.getAll(userId)
+    console.log('data response from post')
+    console.log(data)
+
     res.status(201).json({
         data: [],
         message: 'success'
