@@ -43,12 +43,12 @@ async function create(quizParam, userId) {
     itemlist = []
     for (let i = 0; i < quizParam.items.length; i++) {
         var item = {
-            name : quizParam.items[i]["name"],
+            name : quizParam.items[i].item,
             numSuccess : 0,
-            icon: quizParam.items[i]["icon"]
+            icon: quizParam.items[i].name
         }
         itemlist.push(item) 
-        console.log(itemlist)
+        // console.log(itemlist)
     }
     console.log(itemlist)
     // create quiz object
