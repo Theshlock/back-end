@@ -26,18 +26,18 @@ var jwtCheck = jwt({
   algorithms: ['RS256']
 });
 
-// app.use(jwtCheck);
-// app.post('/quiz', jwtCheck, function(req, res,next) {
-//     next()
-// });
+app.use(jwtCheck);
+app.post('/quiz', jwtCheck, function(req, res,next) {
+    next()
+});
 
-// app.delete('/quiz', jwtCheck, function(req, res,next) {
-//     next()
-// });
+app.delete('/quiz', jwtCheck, function(req, res,next) {
+    next()
+});
 
-// app.get('/quiz-all', jwtCheck, function(req, res, next) {
-//     next()
-// });
+app.get('/quiz-all', jwtCheck, function(req, res, next) {
+    next()
+});
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
