@@ -16,8 +16,8 @@ router.post('/quiz', (req, res, next) => {
             required: true,
             schema: { $ref: "#/definitions/Quiz" }
     } */
-    var userId = await req.user.sub
-    quizService.create(req.body, userId)
+    var userId = req.user.sub
+    await quizService.create(req.body, userId)
 
     res.status(201).json({
         data: [],
