@@ -20,11 +20,18 @@ router.post('/quiz', async (req, res, next) => {
     await quizService.create(req.body, userId)
 
     var data = await quizService.getAll(userId)
-    console.log('data response from post')
-    console.log(data)
+    console.log('quiz name:')
+    console.log(userId["name"])
+    var responseID = 'not found'
+    for (let i = 0; i < data.length; i++) {
+        // console.log(a[i].name)
+        if (data[i].name == userId["name"]) {
+            responseID = a[i].id
+          }
+    }
 
     res.status(201).json({
-        data: [],
+        data: responseID,
         message: 'success'
     })
 })
