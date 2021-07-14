@@ -38,11 +38,12 @@ async function getById(id) {
 }
 
 async function create(quizParam, userId) {
+    console.log(quizParam)
     // put items into list
     itemlist = []
     for (let i = 0; i < quizParam.items.length; i++) {
         var item = {
-            "name" : quizParam.items[i]["name"],
+            name : quizParam.items[i]["name"],
             numSuccess : 0,
             icon: quizParam.items[i]["icon"]
         }
