@@ -26,6 +26,8 @@ var jwtCheck = jwt({
   algorithms: ['RS256']
 });
 
+//authorisation command centre
+
 // app.use(jwtCheck);
 app.post('/quiz', jwtCheck, function(req, res,next) {
     next()

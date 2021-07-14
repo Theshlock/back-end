@@ -46,6 +46,7 @@ async function create(quizParam, userId) {
             numSuccess : 0,
             icon: quizParam.items[i]["icon"]
         }
+        console.log(itemlist)
         itemlist.push(item) 
     }
     console.log(itemlist)
