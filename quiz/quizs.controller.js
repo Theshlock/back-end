@@ -20,7 +20,7 @@ router.post('/quiz', async (req, res, next) => {
     await quizService.create(req.body, userId)
 
     res.status(201).json({
-        data: data,
+        data: [],
         message: 'success'
     })
 })
