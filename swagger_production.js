@@ -35,7 +35,7 @@ const doc = {
         },
         Quiz: {
             name: "Quiz Name",
-            hash: "Quiz Hash",
+            privacyType: "Public",
             items: [{
                 $ref: '#/definitions/Item'
             }]
