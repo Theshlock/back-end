@@ -42,9 +42,9 @@ async function create(quizParam, userId) {
     itemlist = []
     for (let i = 0; i < quizParam.items.length; i++) {
         var item = {
-            "name" : quizParam.items[i]["name"],
+            item : quizParam.items[i]["item"],
             numSuccess : 0,
-            icon: quizParam.items[i]["icon"]
+            emoji: quizParam.items[i]["emoji"]
         }
         itemlist.push(item) 
     }
