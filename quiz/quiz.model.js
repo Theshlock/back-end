@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
-    name: { type: String },//, required: true },
-    icon: { type: String },// required: true },
+    item: { type: String },//, required: true },
+    emoji: { type: String },// required: true },
     numSuccess: { type: Number }//, required: true },
 });
 
